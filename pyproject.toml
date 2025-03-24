@@ -1,0 +1,23 @@
+[build-system]
+    requires = ["hatchling"]
+    build-backend = "hatchling.build"
+
+[project]
+    name = "versecbot_interface"
+    version = "0.1"
+    authors = [{ name = "Museus", email = "versecbot@museus.dev" }]
+    description = "Versioned interface for VerSecBot plugins"
+    readme = "README.md"
+    requires-python = ">=3.8"
+    classifiers = [
+        "Programming Language :: Python :: 3",
+        "Operating System :: OS Independent",
+    ]
+    dependencies = ["discord-py>=2,<3", "pydantic_settings>=2,<3"]
+
+    license = "MIT"
+    license-files = ["LICEN[CS]E*"]
+
+    [project.urls]
+        Homepage = "https://github.com/Museus/VerSecBot-Interface"
+        Issues = "https://github.com/Museus/VerSecBot-Interface/issues"
