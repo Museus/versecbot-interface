@@ -1,4 +1,4 @@
-from pydantic import BaseModel
+from pydantic import BaseModel, Field
 from pydantic_settings import SettingsConfigDict
 
 
@@ -13,4 +13,7 @@ class JobSettings(BaseModel):
 
 
 class WatcherSettings(JobSettings):
-    channel_ids: list[int] | None
+    channel_ids: list[int] | None = Field(
+        default=None,
+        description="List of channel IDs to watch. If None, all channels are watched.",
+    )

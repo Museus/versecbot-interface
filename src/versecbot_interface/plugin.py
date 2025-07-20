@@ -21,7 +21,7 @@ class Plugin(ABC):
 
     def assign_job(self, job: Type[Job]):
         """Assign a job to this plugin."""
-        if not issubclass(job, Job):
+        if not isinstance(job, Job):
             raise TypeError(f"{job} is not a subclass of Job")
 
         self.jobs.register(job)

@@ -43,7 +43,7 @@ class JobRegistry:
         self.watchers = {}
 
     def register(self, job: Job):
-        if issubclass(job, Watcher):
+        if isinstance(job, Watcher):
             if job.name in self.watchers:
                 raise ValueError(f"Watcher with name {job.name} is already registered.")
 
