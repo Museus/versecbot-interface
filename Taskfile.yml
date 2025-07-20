@@ -1,0 +1,11 @@
+version: '3'
+
+tasks:
+  build:
+    cmds:
+      - python3 -m build
+    silent: true
+  install:
+    cmds:
+      - python3 -m pip install --upgrade --force-reinstall .
+    silent: true
