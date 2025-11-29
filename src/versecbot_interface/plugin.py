@@ -32,7 +32,7 @@ class Plugin(ABC):
                 "get_watchers is deprecated, use get_message_watchers instead."
             )
         )
-        return [watcher for watcher in self.jobs.watchers.values()]
+        return [watcher for watcher in self.jobs.watchers.message.values()]
 
     def get_message_watchers(self) -> list[Type[Watcher]]:
         """Get all message watchers assigned to this plugin."""
