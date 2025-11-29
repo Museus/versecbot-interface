@@ -3,7 +3,6 @@ from discord import Intents
 from typing import Type
 
 from .jobs import Job, JobRegistry, Watcher
-from .settings import PluginSettings
 from .version import INTERFACE_VERSION
 
 
@@ -27,6 +26,23 @@ class Plugin(ABC):
         self.jobs.register(job)
 
     def get_watchers(self) -> list[Type[Watcher]]:
+        """Get all message watchers assigned to this plugin."""
+        print(
+            DeprecationWarning(
+                "get_watchers is deprecated, use get_message_watchers instead."
+            )
+        )
+        return [watcher for watcher in self.jobs.watchers.values()]
+
+    def get_message_watchers(self) -> list[Type[Watcher]]:
+        """Get all message watchers assigned to this plugin."""
+        return [watcher for watcher in self.jobs.watchers.message.values()]
+
+    def get_reaction_watchers(self) -> list[Type[Watcher]]:
+        """Get all reaction watchers assigned to this plugin."""
+        return [watcher for watcher in self.jobs.watchers.reaction.values()]
+
+    def get_pollers(self) -> list[Type[Watcher]]:
         """Get all watchers assigned to this plugin."""
         return [watcher for watcher in self.jobs.watchers.values()]
 

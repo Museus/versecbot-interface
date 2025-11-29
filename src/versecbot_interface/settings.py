@@ -17,3 +17,11 @@ class WatcherSettings(JobSettings):
         default=None,
         description="List of channel IDs to watch. If None, all channels are watched.",
     )
+
+
+class PollerSettings(JobSettings):
+    frequency_seconds: int = Field(
+        default=60,
+        gt=4,
+        description="Frequency in seconds to poll.",
+    )

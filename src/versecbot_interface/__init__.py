@@ -1,6 +1,11 @@
 from .plugin import Plugin, PluginRegistry
-from .jobs import Job, JobRegistry, Watcher
-from .settings import PluginSettings, JobSettings, WatcherSettings
+from .jobs import Job, JobRegistry, Watcher, Poller, MessageWatcher, ReactionWatcher
+from .settings import (
+    PluginSettings,
+    JobSettings,
+    WatcherSettings,
+    PollerSettings,
+)
 from .version import INTERFACE_VERSION
 
 __all__ = [
@@ -13,6 +18,10 @@ __all__ = [
     "JobSettings",
     "Watcher",
     "WatcherSettings",
+    "MessageWatcher",
+    "ReactionWatcher",
+    "Poller",
+    "PollerSettings",
     "INTERFACE_VERSION",
 ]
 
